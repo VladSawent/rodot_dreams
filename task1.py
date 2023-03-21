@@ -1,11 +1,18 @@
-# повідомляти — чи є введений текст “числом” чи “словом”
+# по кожному надрукованому символу
 message = str(input("Please print message :"))
-if message == "":
-    print("Немає значення =(")
-elif message.isdigit():  # якщо число
-    if int(message) % 2 == 0:
-        print(message, "це парне число")
+
+for token in list(message):
+    if token == " ":
+        print("  пробіл")
+    elif token.isdigit():  # якщо число
+        if int(token) % 2 == 0:
+            print(token, "це парне число")
+        else:
+            print(token, "не парене число")
+    elif token.isalpha():  # якщо буква
+        if token.islower():
+            print(token, "маленька літера")
+        else:
+            print(token, "велика літера")
     else:
-        print(message, "не парене число")
-else:
-    print("Довжина слова", len(message))  # виводить довжину строки
+        print(token, "Символ")  # виводить символ
